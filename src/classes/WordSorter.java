@@ -1,3 +1,5 @@
+package classes;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -5,11 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 public class WordSorter {
-    public static void main(String[] args){
 
-    }
-
-    public static void FileToCsvConverter(String inputPath){
+     public static void FileToCsvConverter(String inputPath){
         List<String> words = new ArrayList<>();
         try{
             File inputFile = new File(inputPath);
@@ -21,13 +20,12 @@ public class WordSorter {
 
             fileReader.close();
             Collections.sort(words);
-            System.out.println(words);
-            System.out.println("-----ID, Word-----");
+            System.out.println("ID,Word");
             int id = 1;
             for(Object element : words){
-                String lineWithId = id + ". " + element;
+                final String separator = ",";
+                String lineWithId = id++ + separator + element;
                 System.out.println(lineWithId);
-                id++;
             }
         } catch (FileNotFoundException e){
             System.out.println("Input file is missing!");
