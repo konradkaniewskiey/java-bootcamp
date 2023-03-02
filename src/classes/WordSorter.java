@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 public class WordSorter {
 
-     public static void FileToCsvConverter(String inputPath){
+     public void FileToCsvConverter(String inputPath){
         List<String> words = new ArrayList<>();
         try{
             File inputFile = new File(inputPath);

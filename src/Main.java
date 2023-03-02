@@ -1,9 +1,10 @@
-import classes.*;
+import classes.WordSorter;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         String path = "src/input.txt";
-        WordSorter.FileToCsvConverter(path);
+        WordSorter ws = new WordSorter();
+        ws.FileToCsvConverter(path);
 
 
 
