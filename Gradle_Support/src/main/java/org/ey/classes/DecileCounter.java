@@ -1,12 +1,18 @@
+package org.ey.classes;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import java.util.*;
 
 public class DecileCounter {
-    public static void Decile() {
+    private static final Logger LOG = Logger.getLogger(DecileCounter.class);
+    public void Decile() {
+        BasicConfigurator.configure();
         Scanner inputScanner = new Scanner(System.in);
         List<Integer> numbers = new ArrayList<>();
         int num;
         do {
-            System.out.print("Enter a number from 1 to 1000 (or 'END' to stop): ");
+            LOG.info("Enter a number from 1 to 1000 or 'END' to stop, press 'Enter' to submit: ");
             String str = inputScanner.nextLine();
             if (str.equals("END")) {
                 break;
@@ -14,12 +20,12 @@ public class DecileCounter {
             try {
                 num = Integer.parseInt(str);
                 if (num < 1 || num > 1000) {
-                    System.out.println("Invalid input. Number must be between 1 and 1000.");
+                    LOG.info("Invalid input. Number must be between 1 and 1000.");
                     continue;
                 }
                 numbers.add(num);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number or 'END'.");
+                LOG.error("Invalid input. Please enter a number or 'END'.");
             }
         } while (true);
 
